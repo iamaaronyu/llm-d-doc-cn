@@ -1,0 +1,455 @@
+/**
+ * llm-d theme — clean Infima overrides.
+ * Brand color: llm-d purple (#7F317F). Typeface: IBM Plex Sans.
+ */
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-sans/700.css';
+
+:root {
+  --ifm-color-primary: #7f317f;
+  --ifm-color-primary-dark: #6b2a6b;
+  --ifm-color-primary-darker: #5e245e;
+  --ifm-color-primary-darkest: #4a1c4a;
+  --ifm-color-primary-light: #933893;
+  --ifm-color-primary-lighter: #a044a0;
+  --ifm-color-primary-lightest: #ca77ca;
+
+  --ifm-font-family-base: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-code-font-size: 92%;
+  --ifm-navbar-shadow: 0 1px 0 0 var(--ifm-color-emphasis-200);
+  --docusaurus-highlighted-code-line-bg: rgba(127, 49, 127, 0.1);
+}
+
+[data-theme='dark'] {
+  /* Dark-mode accent (per design): #CA77CA. */
+  --ifm-color-primary: #ca77ca;
+  --ifm-color-primary-dark: #bf66bf;
+  --ifm-color-primary-darker: #b95bb9;
+  --ifm-color-primary-darkest: #a23fa2;
+  --ifm-color-primary-light: #d396d3;
+  --ifm-color-primary-lighter: #d9a1d9;
+  --ifm-color-primary-lightest: #e7c4e7;
+
+  --ifm-background-color: #16121a;
+  --ifm-background-surface-color: #1d1822;
+  --docusaurus-highlighted-code-line-bg: rgba(201, 126, 201, 0.15);
+}
+
+/* Slightly tighter, calmer navbar */
+.navbar {
+  --ifm-navbar-item-padding-horizontal: 0.85rem;
+}
+
+/* Announcement bar — solid brand purple with clear text */
+div[class*='announcementBar_'] {
+  background-color: #7f317f;
+  background-image: none;
+  color: #fff;
+  font-weight: 500;
+  border-bottom: none;
+}
+div[class*='announcementBar_'] a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+div[class*='announcementBar_'] a:hover {
+  color: #fff;
+  opacity: 0.85;
+}
+div[class*='announcementBar_'] button[class*='closeButton'] {
+  color: #fff;
+}
+
+/* GitHub icon in the navbar (standard Docusaurus pattern) */
+.header-github-link::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  display: flex;
+  background: no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+}
+[data-theme='dark'] .header-github-link::before {
+  filter: invert(1);
+}
+.header-github-link:hover {
+  opacity: 0.75;
+}
+
+/* GitHub link with live star count (custom-githubStars navbar item) */
+.header-github-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.header-github-stars__icon {
+  content: '';
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: block;
+  background: no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+}
+[data-theme='dark'] .header-github-stars__icon {
+  filter: invert(1);
+}
+.header-github-stars__count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.header-github-stars__count::before {
+  content: '★';
+  margin-right: 0.2rem;
+  color: #e3b341;
+}
+.header-github-stars:hover {
+  opacity: 0.75;
+}
+
+.header-slack-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  /* Match the GitHub star-count text size (.header-github-stars__count). */
+  font-size: 0.85rem;
+}
+/* Drop the auto-appended external-link icon on the Slack link. */
+.header-slack-link svg {
+  display: none;
+}
+.header-slack-link::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 21px;
+  height: 21px;
+  display: flex;
+  background: no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z'/%3E%3C/svg%3E");
+}
+[data-theme='dark'] .header-slack-link::before {
+  filter: invert(1);
+}
+.header-slack-link:hover {
+  opacity: 0.75;
+}
+
+/* Mobile top navbar: show only the GitHub + Slack icons, hide their text.
+   Scoped to the top bar's right items (.navbar__items--right) so the hamburger
+   drawer — which lives under .navbar-sidebar — keeps the star count and the
+   "Join Slack" label as-is. The Slack label is hidden with font-size:0 (its
+   ::before icon has a fixed 21px box, so the icon still shows). */
+@media (max-width: 996px) {
+  .navbar__items--right .header-github-stars__count {
+    display: none;
+  }
+  .navbar__items--right .header-slack-link {
+    font-size: 0;
+  }
+}
+
+/* Footer follows the color scheme (white in light mode, black in dark mode)
+   instead of Infima's always-dark `--footer--dark` styling. */
+.footer--dark {
+  --ifm-footer-background-color: #ffffff !important;
+  --ifm-footer-color: #000000 !important;
+  --ifm-footer-link-color: #000000 !important;
+  --ifm-footer-title-color: #000000 !important;
+  border-top: 1px solid #000000;
+}
+[data-theme='dark'] .footer--dark {
+  --ifm-footer-background-color: #000000 !important;
+  --ifm-footer-color: #ffffff !important;
+  --ifm-footer-link-color: #ffffff !important;
+  --ifm-footer-title-color: #ffffff !important;
+  border-top: 1px solid #ffffff;
+}
+
+/* All footer text at 14px — column titles, link items, copyright, CNCF
+   mention, Slack CTA label. */
+.footer,
+.footer__title,
+.footer__link-item,
+.footer__items,
+.footer__copyright,
+.footer-socials,
+.footer-cncf,
+.footer-socials-cta {
+  font-size: 0.875rem;
+}
+
+.button-link,
+.button-link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Footer social links (Social column's `html` link block) */
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-socials-row {
+  display: grid;
+  grid-template-columns: repeat(7, 26px);
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+@media screen and (max-width: 996px) {
+  .footer-socials-row {
+    grid-template-columns: repeat(4, 28px);
+    gap: 12px;
+    justify-content: start;
+  }
+  .footer-socials img {
+    width: 28px;
+    height: 28px;
+  }
+}
+.footer-socials-cta {
+  margin-top: 4px;
+}
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.footer-socials img {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.footer-socials img:hover {
+  transform: scale(1.1);
+}
+/* Footer background is white in light mode; make the white icon PNGs visible. */
+html:not([data-theme='dark']) .footer-socials img {
+  filter: brightness(0);
+}
+
+/* CNCF Sandbox mention shown in the Social footer column */
+.footer-cncf {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 12px;
+  font-size: 0.875rem;
+}
+.footer-cncf-logo {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  filter: brightness(0);
+}
+[data-theme='dark'] .footer-cncf-logo {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------------------------------------------------------------------------
+   Intro classes used by docs/getting-started (the source README.mdx).
+   --------------------------------------------------------------------------- */
+.intro-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.intro-ctas a {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--ifm-color-primary);
+}
+.intro-ctas a:first-child {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+.intro-ctas a:first-child:hover {
+  background: var(--ifm-color-primary-dark);
+}
+.intro-ctas a:not(:first-child) {
+  color: var(--ifm-color-primary);
+}
+.intro-ctas a:not(:first-child):hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.intro-founded {
+  margin: 2rem 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+.intro-cncf {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+}
+.intro-cncf-logo {
+  height: 30px;
+  width: auto;
+}
+/* Founder logos sit on their own row under the CNCF line */
+.intro-founded-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.75rem;
+}
+/* The source logos are white silhouettes — tint them dark for light mode,
+   keep them white for dark mode, so they're visible in both. */
+.intro-founder-logo,
+.intro-cncf-logo {
+  filter: brightness(0);
+  opacity: 0.75;
+}
+[data-theme='dark'] .intro-founder-logo,
+[data-theme='dark'] .intro-cncf-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------------
+   Docs & community left nav.
+
+   A roomier, clearly-sectioned sidebar: bold section headers, medium-grey leaf
+   links, and a full-width active row (light band + brand-purple text). Scoped to
+   `.theme-doc-sidebar-menu`, so it styles every docs version and the community
+   sidebar at once and never touches the mobile navbar drawer. */
+.theme-doc-sidebar-menu {
+  --ifm-menu-color: #393939;                     /* leaf link text (near-black, not grey) */
+  --ifm-menu-color-active: #7f317f;              /* active row text (brand purple) */
+  --ifm-menu-color-background-active: #f2f4f8;   /* active row band */
+  --ifm-menu-color-background-hover: #f2f4f8;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+.theme-doc-sidebar-menu .menu__link {
+  border-radius: 0; /* full-width band with square edges */
+  padding: 0.5rem 1rem;
+  line-height: 1.35;
+  font-weight: 400; /* leaf links: regular (thinner) */
+}
+.theme-doc-sidebar-menu .menu__list-item:not(:first-child) {
+  margin-top: 0.15rem;
+}
+/* Section headers (collapsible categories): semibold + near-black. */
+.theme-doc-sidebar-menu .menu__link--sublist:not(.menu__link--active) {
+  font-weight: 600;
+  color: #161616;
+}
+/* Active row: semibold. */
+.theme-doc-sidebar-menu .menu__link--active {
+  font-weight: 600;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-menu {
+  --ifm-menu-color: #c6c6c6;
+  --ifm-menu-color-active: #d68bd6;
+  --ifm-menu-color-background-active: #2a2a2a;
+  --ifm-menu-color-background-hover: #2a2a2a;
+}
+[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--sublist:not(.menu__link--active) {
+  color: #f4f4f4;
+}
+
+/* Keep full author titles visible without letting cards grow unbounded. */
+small[class*='authorTitle_'] {
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+}
+
+/* Blog layout: Infima's grid gives every column a fixed flex-basis (col--N),
+   so on a post with no right-hand table of contents the article column
+   still stops at its 7/12 (or 9/12 without a sidebar) width, leaving a dead
+   blank strip on the right where the TOC would otherwise sit. Let the
+   article column grow into that leftover space instead, capping prose at a
+   readable width and centering it so the extra room becomes balanced side
+   margins rather than empty space stuck on one edge. */
+.blog-wrapper .row:not(:has(> .col--2)) > main[class*='col--'] {
+  flex: 1 1 0%;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Infima caps `.container` at 1320px past 1440px viewports, which on a wide
+   monitor leaves large equal margins outside the whole sidebar/article/TOC
+   block. Let the blog container use more of the available width instead. */
+@media (min-width: 1440px) {
+  .blog-wrapper .container {
+    max-width: 1600px;
+  }
+}
+@media (min-width: 1920px) {
+  .blog-wrapper .container {
+    max-width: 1800px;
+  }
+}
+
+/* GLM-5.2 blog figures: size by information density, not source aspect ratio. */
+.glm-figure {
+  width: 94%;
+  max-width: 62.5rem;
+  margin: 1.75rem auto;
+}
+
+.glm-figure--wide {
+  width: 100%;
+  max-width: 72.5rem;
+}
+
+.glm-figure--compact {
+  width: 82%;
+  max-width: 51.25rem;
+}
+
+.glm-figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 40rem;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.glm-figure figcaption {
+  direction: ltr;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.glm-figure figcaption > :last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .glm-figure,
+  .glm-figure--wide,
+  .glm-figure--compact {
+    width: 100%;
+    margin: 1.25rem auto;
+  }
+}

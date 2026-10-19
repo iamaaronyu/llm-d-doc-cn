@@ -1,0 +1,38 @@
+---
+slug: /
+---
+
+import Link from '@docusaurus/Link';
+
+# 在任意加速器上获得业界领先 LLM 推理性能的最快路径
+
+llm-d 是一个面向 Kubernetes 的开源推理服务栈。它在你的集群中运行你选择的模型服务器——vLLM、SGLang 等——把单节点推理引擎变成运行在你现有基础设施上的生产级分布式推理。在 NVIDIA、AMD 以及定制加速器上，为主流开源模型获得业界领先的性能。
+
+专为智能体（Agentic）流水线、大语言模型、多模态模型和高吞吐服务而构建。完全不绑定推理引擎和硬件。
+
+<div class="intro-ctas">
+  <Link className="button button--primary" to="/docs/getting-started/quickstart">开始使用</Link>
+  <Link className="button button--secondary" to="https://prism.llm-d.ai/" target="_blank" rel="noopener noreferrer">查看性能数据</Link>
+</div>
+
+<div class="intro-founded">
+  <div class="intro-cncf">
+    <img class="intro-cncf-logo" src="/img/CNCF-logo.svg" alt="CNCF" />
+    <span>llm-d 是 CNCF 沙箱项目，由 Red Hat、Google Cloud、IBM Research、CoreWeave 和 NVIDIA 共同发起。</span>
+  </div>
+</div>
+
+## 成熟路径（Well-Lit Paths） {#well-lit-paths}
+
+除了软件组件之外，llm-d 还提供成熟路径（Well-Lit Paths）——针对常见生产模式、经过测试和基准评测的部署方案。这些路径是起点，可以根据你的模型、硬件和流量模式进行调整，以支持智能体、多模态和批处理工作负载。
+
+每条路径包括：
+
+- 可直接部署的 Helm Chart 和 Kustomize 清单
+- 用于性能调优的关键配置项
+- 示例工作负载，以及与基线配置对比的基准测试
+- 监控与可观测性配置
+
+<div class="intro-ctas">
+  <Link className="button button--primary" to="/docs/well-lit-paths">查看全部成熟路径</Link>
+</div>

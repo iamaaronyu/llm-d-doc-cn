@@ -1,0 +1,67 @@
+name: Deploy website
+
+# Builds the site (with docs synced from llm-d/llm-d) and deploys to GitHub Pages.
+# Triggers:
+#   - push to main (site/tooling changes in this repo)
+#   - repository_dispatch "docs-updated" (fired by llm-d/llm-d on a docs merge)
+#   - nightly cron (fallback so upstream docs changes land even without a dispatch)
+#   - manual
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [docs-updated]
+  schedule:
+    - cron: '17 1 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-llmd-site
+        with:
+          npm-command: npm ci
+          go-test: 'false'
+
+      - name: Sync docs from llm-d/llm-d
+        run: ./bin/llmd-site sync main
+
+      - name: Build site
+        run: ./bin/llmd-site build
+
+      - uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          include-hidden-files: true
+          path: build
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

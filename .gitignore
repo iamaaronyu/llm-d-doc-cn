@@ -1,0 +1,51 @@
+# Dependencies
+/node_modules
+
+# Production build output
+/build
+/preview
+
+# llmd-site CLI
+/bin
+broken-links-report.md
+link-checker.config.json
+llmd-site.local.yaml
+sync-report.json
+
+# Chinese docs and their images are committed in this translation repository.
+
+# Community mirror pages are synced from llm-d/llm-d repo-root files. The authored
+# community pages (index.mdx, events.mdx) stay committed.
+/community/contribute.md
+/community/code-of-conduct.md
+/community/security.md
+/community/sigs.md
+
+# Legacy preview subsite generated artifacts (archived; no longer part of active build/deploy).
+/preview/node_modules
+/preview/build
+/preview/docs
+
+# Generated Docusaurus files
+.docusaurus
+.cache-loader
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/
+
+# Local runtime and preview state
+/.local-runtime/
+/.local-preview.json
+/local-preview.log
+/build-static/
+*.log
+.env
+.env.*

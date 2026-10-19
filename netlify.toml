@@ -1,0 +1,10 @@
+# Netlify is used for PR deploy previews (production deploys go to GitHub Pages via
+# .github/workflows/deploy.yml). The build syncs docs from llm-d/llm-d, then builds
+# the single Docusaurus site. Remove this file if the repo is no longer on Netlify.
+[build]
+  command = "npm ci && make llmd-site && ./bin/llmd-site sync main && ./bin/llmd-site build"
+  publish = "build"
+
+[build.environment]
+  GO_VERSION = "1.22"
+  NODE_VERSION = "20.18.1"
